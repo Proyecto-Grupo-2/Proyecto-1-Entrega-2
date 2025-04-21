@@ -1,17 +1,34 @@
 package parqueDeAtracciones;
 
+import java.util.ArrayList;
+
+import Tiquetes.FastPass;
+import Tiquetes.Tiquete;
+
 public class Usuario {
 	private String login; 
 	private String password; 
 	private Boolean esEmpleado;
 	private Boolean esAdministrador;
+	private ArrayList<Atraccion> listaAtracciones= new ArrayList<Atraccion>(); 
+
+	private ArrayList<Espectaculo> listaEspectaculos= new ArrayList<Espectaculo>(); 
+	private ArrayList<Tiquete> listaTiquetes= new ArrayList<Tiquete>(); 
+	private ArrayList<FastPass> listaFastPass= new ArrayList<FastPass>(); 
 	
-	public Usuario(String login, String password, Boolean esEmpleado, Boolean esAdministrador) {
+	
+	
+	public Usuario(String login, String password, Boolean esEmpleado, Boolean esAdministrador, ArrayList<Atraccion> listaAtracciones
+			, ArrayList<Espectaculo> listaEspectaculos,  ArrayList<FastPass> listaFastPass,  ArrayList<Tiquete> listaTiquetes) {
 		super();
 		this.login = login;
 		this.password = password;
 		this.esEmpleado = esEmpleado;
 		this.esAdministrador = esAdministrador;
+		this.listaAtracciones = listaAtracciones;
+		this.listaEspectaculos = listaEspectaculos;
+		this.listaFastPass= listaFastPass; 
+		this.listaTiquetes= listaTiquetes;
 	}
 	public String getLogin() {
 		return login;
@@ -25,7 +42,7 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getEsEmpleado() {
+	public Boolean getEsEmpleado() {
 		return esEmpleado;
 	}
 	public void setEsEmpleado(Boolean esEmpleado) {
@@ -36,7 +53,38 @@ public class Usuario {
 	}
 	public void setEsAdministrador(Boolean esAdministrador) {
 		this.esAdministrador = esAdministrador;
+	}
+	public ArrayList<Atraccion> getListaAtracciones() {
+		return listaAtracciones;
+	}
+	public void setListaAtracciones(ArrayList<Atraccion> listaAtracciones) {
+		this.listaAtracciones = listaAtracciones;
+	}
+	public ArrayList<Espectaculo> getListaEspectaculos() {
+		return listaEspectaculos;
+	}
+	public void setListaEspectaculos(ArrayList<Espectaculo> listaEspectaculos) {
+		this.listaEspectaculos = listaEspectaculos;
 	} 
 	
+	public void añadirAtraccion(Atraccion atraccion) {
+		this.listaAtracciones.add(atraccion);
+	}
 	
+	public void añadirEspectaculo(Espectaculo espectaculo) {
+		this.listaEspectaculos.add(espectaculo);
+	}
+	
+
+	public void añadirTiquete(Tiquete tiquete) {
+		if (login==tiquete.getLoginUsuario()) {
+			this.listaTiquetes.add(tiquete);
+			}
+	}
+
+	public void añadirFastPass(FastPass fastPass) {
+		if (login==fastPass.getLoginUsuario()) {
+			this.listaFastPass.add(fastPass);
+			}
+	}
 }

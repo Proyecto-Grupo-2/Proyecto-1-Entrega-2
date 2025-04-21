@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 public class TiqueteDia extends Tiquete {
 	private LocalDateTime fechatiquete;
 
-	public TiqueteDia(Boolean used, Double precio, String idticket, LocalDateTime fechatiquete) {
-		super(used, precio, idticket);
+	public TiqueteDia(Boolean used, Double precio, String idticket, String loginUsuario, LocalDateTime fechatiquete) {
+		super(used, precio, idticket,loginUsuario);
 		this.fechatiquete = fechatiquete;
 	}
 

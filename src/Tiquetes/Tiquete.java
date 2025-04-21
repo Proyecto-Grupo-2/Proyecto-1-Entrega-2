@@ -5,12 +5,14 @@ public class Tiquete {
 	private Boolean used; 
 	private Double precio; 
 	private String idticket;
+	private String loginUsuario;
 	
-	public Tiquete(Boolean used, Double precio, String idticket) {
+	public Tiquete(Boolean used, Double precio, String idticket, String loginUsuario) {
 		super();
 		this.used = used;
 		this.precio = precio;
 		this.idticket = idticket;
+		this.loginUsuario=loginUsuario;
 	}
 	public Boolean getUsed() {
 		return used;
@@ -29,7 +31,14 @@ public class Tiquete {
 	}
 	public void setIdticket(String idticket) {
 		this.idticket = idticket;
+	}
+	public String getLoginUsuario() {
+		return loginUsuario;
+	}
+	public void setLoginUsuario(String loginUsuario) {
+		this.loginUsuario = loginUsuario;
 	} 
+	
 	
 	
 }

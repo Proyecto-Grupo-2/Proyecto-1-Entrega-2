@@ -1,6 +1,8 @@
 package parqueDeAtracciones;
 
-public class AtraccionMecanica extends Atraccion{
+import java.time.LocalDateTime;
+
+public class AtraccionMecanica extends Atraccion {
 
 	private double alturaMax;
 	private double alturaMin;
@@ -10,9 +12,10 @@ public class AtraccionMecanica extends Atraccion{
 	private String[] restriccionesSalud;
 	private riskLevel riskLevel;
 	private String restriccionClima;
-	public AtraccionMecanica(double alturaMax, double alturaMin, double pesoMin, double pesoMax, boolean opera,
+	public AtraccionMecanica(String nomAtraccion, String ubicacion, int capMax, int numMinEmp, LocalDateTime dateMax,
+			LocalDateTime dateMin, ExcLevel excLevel, double alturaMax, double alturaMin, double pesoMin, double pesoMax, boolean opera,
 			String[] restriccionesSalud, parqueDeAtracciones.riskLevel riskLevel, String restriccionClima) {
-		super();
+		super(nomAtraccion, ubicacion, capMax, numMinEmp, dateMax, dateMin, excLevel);
 		this.alturaMax = alturaMax;
 		this.alturaMin = alturaMin;
 		this.pesoMin = pesoMin;

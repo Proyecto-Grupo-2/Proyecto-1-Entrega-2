@@ -7,9 +7,9 @@ public class TiqueteTemporada extends Tiquete {
 	private LocalDateTime starDate;
 	private LocalDateTime endDate;
 	
-	public TiqueteTemporada(Boolean used, Double precio, String idticket, LocalDateTime starDate,
+	public TiqueteTemporada(Boolean used, Double precio, String idticket, String loginUsuario, LocalDateTime starDate,
 			LocalDateTime endDate) {
-		super(used, precio, idticket);
+		super(used, precio, idticket, loginUsuario);
 		this.starDate = starDate;
 		this.endDate = endDate;
 	}
