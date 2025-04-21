@@ -4,5 +4,5 @@
 /**
  * 
  */
-module Proyecto1Entrega2 {
+module Proyecto1entrega2 {
 }
