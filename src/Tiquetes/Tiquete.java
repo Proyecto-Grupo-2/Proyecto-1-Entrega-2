@@ -1,6 +1,10 @@
 package Tiquetes;
+import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
 
-public class Tiquete {
+
+public class Tiquete  {
 	
 	private Boolean used; 
 	private Double precio; 
@@ -38,8 +42,58 @@ public class Tiquete {
 	public void setLoginUsuario(String loginUsuario) {
 		this.loginUsuario = loginUsuario;
 	} 
+
+		
+		
+		//Escribir Documento 
+		public static void escribirTiquetestxt(List<Tiquete> tiquetes) {
+			try {
+				File carpeta = new File("./data/");
+				if(!carpeta.exists()) carpeta.mkdirs();
+				
+				PrintWriter escritor = new PrintWriter(new File("./data/tiquetes.txt"));
+				
+				for (Tiquete t : tiquetes) {
+					escritor.println(t.getIdticket() + "--" +
+				    t.getPrecio() + "--" + 
+					t.getUsed() + "--" +
+				    t.getLoginUsuario());
+				}
+				
+				escritor.close();
+			} catch (FileNotFoundException e) {
+				System.err.println("Error al escribir tiquetes: " + e.getMessage());
+			}
+		}
+		
+		
+		//Leer documento
+		public static ArrayList<Tiquete> leerTiquetesTxt() {
+			ArrayList<Tiquete> tiquetes = new ArrayList<>();
+			
+			try (BufferedReader lector = new BufferedReader(new FileReader("./data/tiquetes.txt"))) {
+				String linea = lector.readLine();
+				while (linea != null) {
+					String[] datos = linea.split("--");
+					
+					String idticket = datos[0];
+					double precio = Double.parseDouble(datos[1]);
+					boolean used = Boolean.parseBoolean(datos[2]);
+					String loginUsuario = datos[3];
+					Tiquete t = new Tiquete(used, precio, idticket,loginUsuario);
+					
+					t.setLoginUsuario(loginUsuario);
+					tiquetes.add(t);
+					
+					linea = lector.readLine();
+				}
+			} catch (IOException e) {
+				System.err.println("Error al leer tiquetes: " + e.getMessage());
+			}
+			return tiquetes;
+					
+		}
+	}
 	
-	
-	
-}
+
 	

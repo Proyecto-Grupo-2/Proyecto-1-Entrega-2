@@ -1,11 +1,15 @@
 package Empleados;
+import parqueDeAtracciones.Usuario;
 
 import java.lang.reflect.Array;
 import java.util.*;
 
+import Tiquetes.TiqueteTemporada;
 import parqueDeAtracciones.Atraccion;
 import parqueDeAtracciones.Espectaculo;
+import parqueDeAtracciones.Usuario;
 
+import java.time.LocalDateTime;
 
 public class Empelado {
 
@@ -61,6 +65,7 @@ public class Empelado {
 		IdUnicoEmp = idUnicoEmp;
 	}
 
+	//
 	public ArrayList<Turno> getListaTurnos() {
 		return listaTurnos;
 	}
@@ -107,7 +112,24 @@ public class Empelado {
 		this.listaTurnos.add(turno);
 	}
 	
+	public String consultarTurno(ArrayList<Turno> Turnos, String idEmp, Boolean mananero, LocalDateTime fecha) {
+		for (Turno turno : Turnos) {
+			if (turno.getIdEmpAsig().equals(idEmp) & turno.isEsMañanero()== mananero & turno.getFechaTurno()==fecha) {
+				if (turno.getEsEnAtraccion()) {
+					return "dirijase a " + turno.getAtraccionTurno() + " para ejercer su turno";
+				}
+				else {
+					return "dirijase a " + turno.getLugarTurno() + " para ejercer su turno";
+				}
+			}
+		}
+		return "No tiene ese turno ocupado en la fecha indicada";
+	}
+	
+		
+	}
+	
 	
 
 // y falta lo de la lista de habilidades que nose como putas lo voy a hacer 
-}
+

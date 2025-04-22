@@ -10,16 +10,16 @@ public class Turno {
 	private boolean esMañanero;
 	private LocalDateTime fechaTurno;
 	private LugarServicio lugarTurno; 
-	private Empelado empAsignado; 
+	private String idEmpAsig; 
 	private Atraccion atraccionTurno;
 	private Boolean esEnAtraccion; 
-	public Turno(boolean esMañanero, LocalDateTime fechaTurno, LugarServicio lugarTurno, Empelado empAsignado,
+	public Turno(boolean esMañanero, LocalDateTime fechaTurno, LugarServicio lugarTurno, String idEmpAsig,
 			Atraccion atraccionTurno, boolean esEnAtraccion) {
 		super();
 		this.esMañanero = esMañanero;
 		this.fechaTurno = fechaTurno;
 		this.lugarTurno = lugarTurno;
-		this.empAsignado = empAsignado;
+		this.idEmpAsig = idEmpAsig;
 		this.atraccionTurno = atraccionTurno;
 		this.esEnAtraccion = esEnAtraccion;
 	}
@@ -47,11 +47,12 @@ public class Turno {
 		return lugarTurno;
 	}
 	
-	public Empelado getEmpAsignado() {
-		return empAsignado;
+	
+	public String getIdEmpAsig() {
+		return idEmpAsig;
 	}
-	public void setEmpAsignado(Empelado empAsignado) {
-		this.empAsignado = empAsignado;
+	public void setIdEmpAsig(String idEmpAsig) {
+		this.idEmpAsig = idEmpAsig;
 	}
 	public Atraccion getAtraccionTurno() {
 		return atraccionTurno;
