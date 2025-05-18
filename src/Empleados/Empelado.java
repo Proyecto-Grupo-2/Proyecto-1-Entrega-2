@@ -126,8 +126,40 @@ public class Empelado {
 		return "No tiene ese turno ocupado en la fecha indicada";
 	}
 	
+	public void venderTiquete(String loginU, String tipoTiquete, Integer prioridadTiquete) {
 		
 	}
+	
+	public Atraccion consultarInfoAtraccionEspec(String nomA)
+	{
+		Atraccion actual=null;
+		for (int i = 0; i < listaAtracciones.size(); i++) 
+		{
+			actual = listaAtracciones.get( i );
+            if(actual.getNomAtraccion().equals(nomA))
+            {
+                    return actual;
+            }
+		}
+		return null; 
+}
+
+	
+	public Espectaculo consultarInfoEspectaculoEspec(String nomE)
+	{
+		Espectaculo actual=null;
+		for (int i = 0; i < listaEspectaculos.size(); i++) 
+		{
+			actual = listaEspectaculos.get( i );
+            if(actual.getNomEspectaculo().equals(nomE))
+            {
+                    return actual;
+            } 
+	}
+		return null;
+}
+}
+	
 	
 	
 

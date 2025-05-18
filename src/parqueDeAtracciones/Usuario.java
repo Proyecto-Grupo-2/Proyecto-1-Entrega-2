@@ -60,6 +60,7 @@ public class Usuario {
 	public void setListaAtracciones(ArrayList<Atraccion> listaAtracciones) {
 		this.listaAtracciones = listaAtracciones;
 	}
+	
 	public ArrayList<Espectaculo> getListaEspectaculos() {
 		return listaEspectaculos;
 	}
@@ -87,4 +88,42 @@ public class Usuario {
 			this.listaFastPass.add(fastPass);
 			}
 	}
+	
+	public Atraccion consultarInfoAtraccionEspec(String nomA)
+	{
+		Atraccion actual=null;
+		for (int i = 0; i < listaAtracciones.size(); i++) 
+		{
+			actual = listaAtracciones.get( i );
+            if(actual.getNomAtraccion().equals(nomA))
+            {
+                    return actual;
+            }
+		}
+		return null; 
 }
+
+	
+	public Espectaculo consultarInfoEspectaculoEspec(String nomE)
+	{
+		Espectaculo actual=null;
+		for (int i = 0; i < listaEspectaculos.size(); i++) 
+		{
+			actual = listaEspectaculos.get( i );
+            if(actual.getNomEspectaculo().equals(nomE))
+            {
+                    return actual;
+            } 
+	}
+		return null;
+}
+}
+
+
+
+
+
+
+
+
+

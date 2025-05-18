@@ -1,4 +1,4 @@
-package Tiquetes;
+ package Tiquetes;
 import java.time.LocalDateTime;
 
 public class TiqueteDia extends Tiquete {

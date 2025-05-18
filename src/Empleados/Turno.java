@@ -1,4 +1,4 @@
-package Empleados;
+	package Empleados;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -37,6 +37,7 @@ public class Turno {
 	}
 	
 	
+	
 	public Boolean getEsEnAtraccion() {
 		return esEnAtraccion;
 	}
@@ -54,6 +55,8 @@ public class Turno {
 	public void setIdEmpAsig(String idEmpAsig) {
 		this.idEmpAsig = idEmpAsig;
 	}
+
+	
 	public Atraccion getAtraccionTurno() {
 		return atraccionTurno;
 	}
