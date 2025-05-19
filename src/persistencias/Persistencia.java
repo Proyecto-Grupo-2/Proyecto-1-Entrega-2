@@ -17,8 +17,7 @@ import parqueDeAtracciones.Espectaculo;
 import parqueDeAtracciones.ExcLevel;
 
 public class Persistencia {
-	
-    // Escribir Documento
+
     public static void escribirAtraccionesTxt(List<Atraccion> atracciones) 
     {
         try {
@@ -47,7 +46,7 @@ public class Persistencia {
         }
     }
 
-    // Leer Documento
+
     public static ArrayList<Atraccion> leerAtraccionesTxt() 
     {
         ArrayList<Atraccion> atracciones = new ArrayList<>();
@@ -81,7 +80,7 @@ public class Persistencia {
         return atracciones;
         }
 
-    // Escribir Documento
+
     public static void escribirEspectaculosTxt(List<Espectaculo> espectaculos) 
     {
         try 
@@ -109,7 +108,7 @@ public class Persistencia {
         }
     }
 
-    // Leer Documento
+
     public static ArrayList<Espectaculo> leerEspectaculosTxt() 
     {
         ArrayList<Espectaculo> espectaculos = new ArrayList<>();
@@ -140,7 +139,7 @@ public class Persistencia {
         return espectaculos;
     }
 
-  //Escribir Documento 
+  
   		public static void escribirTiquetestxt(List<Tiquete> tiquetes) 
   		{
   			try 

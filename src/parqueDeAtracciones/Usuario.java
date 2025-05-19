@@ -80,7 +80,7 @@ public class Usuario {
 		this.listaEspectaculos.add(espectaculo);
 	}
 	
-
+	
 	public void añadirTiquete(Tiquete tiquete) {
 		if (login==tiquete.getLoginUsuario()) {
 			this.listaTiquetes.add(tiquete);
@@ -102,6 +102,10 @@ public class Usuario {
 		return tiquetes;
 	}
 	
+	public ArrayList<FastPass> getListaFastPass() {
+	    return listaFastPass;
+	}
+
 	public Atraccion consultarInfoAtraccionEspec(String nomA)
 	{
 		Atraccion actual=null;

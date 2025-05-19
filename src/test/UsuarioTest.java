@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import Tiquetes.FastPass;
 import Tiquetes.Tiquete;
+import Tiquetes.TiqueteDia;
+import Tiquetes.TiqueteTemporada;
 import parqueDeAtracciones.Atraccion;
 import parqueDeAtracciones.Espectaculo;
 import parqueDeAtracciones.ExcLevel;
@@ -78,4 +80,67 @@ public class UsuarioTest {
         assertNull(resultado);
     }
     
+    
+    @Test
+    public void testCompraFastPass() {
+        int prevSize = usuario.getListaFastPass().size();
+
+        usuario.compraTiquetesOnline("juan123", "fastpass", "", 0.0, null, null);
+
+        ArrayList<FastPass> fastPasses = usuario.getListaFastPass();
+        assertEquals(prevSize + 1, fastPasses.size());
+
+        FastPass fp = fastPasses.get(fastPasses.size() - 1);
+        assertEquals("juan123", fp.getLoginUsuario());
+        assertNotNull(fp.getFechaFastPass());
+    }
+
+    @Test
+    public void testCompraTiqueteDia() {
+        int prevSize = usuario.consultarCatalogoTiquetes().size();
+
+        usuario.compraTiquetesOnline("juan123", "tiquetedia", "PLATA", 50.0, null, null);
+
+        ArrayList<Tiquete> tiquetes = usuario.consultarCatalogoTiquetes();
+        assertEquals(prevSize + 1, tiquetes.size());
+
+        Tiquete t = tiquetes.get(tiquetes.size() - 1);
+        assertTrue(t instanceof TiqueteDia);
+        assertEquals("juan123", t.getLoginUsuario());
+        assertEquals("PLATA", t.getExcLevel());
+    }
+
+    @Test
+    public void testCompraTiqueteTemporada() {
+        int prevSize = usuario.consultarCatalogoTiquetes().size();
+        LocalDateTime inicio = LocalDateTime.of(2025, 6, 1, 10, 0);
+        LocalDateTime fin = LocalDateTime.of(2025, 6, 30, 18, 0);
+
+        usuario.compraTiquetesOnline("juan123", "tiquetetemporada", "ORO", 200.0, inicio, fin);
+
+        ArrayList<Tiquete> tiquetes = usuario.consultarCatalogoTiquetes();
+        assertEquals(prevSize + 1, tiquetes.size());
+
+        Tiquete t = tiquetes.get(tiquetes.size() - 1);
+        assertTrue(t instanceof TiqueteTemporada);
+        TiqueteTemporada temp = (TiqueteTemporada) t;
+        assertEquals("juan123", temp.getLoginUsuario());
+        assertEquals(inicio, temp.getStarDate());
+        assertEquals(fin, temp.getEndDate());
+        assertEquals("ORO", temp.getExcLevel());
+    }
+
+    @Test
+    public void testCompraConLoginIncorrecto_NoSeAgrega() {
+        int prevSizeT = usuario.consultarCatalogoTiquetes().size();
+        int prevSizeF = usuario.getListaFastPass().size();
+
+        usuario.compraTiquetesOnline("otroLogin", "normal", "DIAMANTE", 100.0, null, null);
+        usuario.compraTiquetesOnline("otroLogin", "fastpass", "", 0.0, null, null);
+
+        assertEquals(prevSizeT, usuario.consultarCatalogoTiquetes().size());
+        assertEquals(prevSizeF, usuario.getListaFastPass().size());
+    }
+
+
 }
