@@ -126,10 +126,17 @@ public class Empelado {
 		return "No tiene ese turno ocupado en la fecha indicada";
 	}
 	
-		
+	public static Empelado buscarEmpeladoPorId(String idEmp, ArrayList<Empelado> listaEmpelados) {
+	    for (Empelado e : listaEmpelados) {
+	        if (e.getIdUnicoEmp().equalsIgnoreCase(idEmp)) {
+	            return e;
+	        }
+	    }
+	    return null;
 	}
+	
+}
 	
 	
 
-// y falta lo de la lista de habilidades que nose como putas lo voy a hacer 
 

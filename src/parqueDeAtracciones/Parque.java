@@ -104,4 +104,34 @@ public class Parque {
 		public void añadirTurno(Turno turno) {
 			this.listaTurnos.add(turno);
 		}
+		
+		
+		public Empelado buscarEmpeladoPorId(String id) {
+		    for (Empelado emp : listaEmpleado) {
+		        if (emp.getIdUnicoEmp().equalsIgnoreCase(id)) {
+		            return emp;
+		        }
+		    }
+		    return null;
+		}
+
+		public Atraccion buscarAtraccionPorNombre(String nombre) {
+		    for (Atraccion a : listaAtracciones) {
+		        if (a.getNomAtraccion().equalsIgnoreCase(nombre)) {
+		            return a;
+		        }
+		    }
+		    return null;
+		}
+
+		public LugarServicio buscarLugarServicioPorNombre(String nombre) {
+		    for (LugarServicio l : listaLugaresServicio) {
+		        if (l.getNomUnicoLugar().equalsIgnoreCase(nombre)) {
+		            return l;
+		        }
+		    }
+		    return null;
+		}
+
+
 }
