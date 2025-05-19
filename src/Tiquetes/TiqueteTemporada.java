@@ -2,14 +2,15 @@
 package Tiquetes;
 import java.time.LocalDateTime;
 
+
 public class TiqueteTemporada extends Tiquete {
 
 	private LocalDateTime starDate;
 	private LocalDateTime endDate;
 	
-	public TiqueteTemporada(Boolean used, Double precio, String idticket, String loginUsuario, LocalDateTime starDate,
+	public TiqueteTemporada(Boolean used, Double precio, String idticket, String loginUsuario, String excLevel, LocalDateTime starDate,
 			LocalDateTime endDate) {
-		super(used, precio, idticket, loginUsuario);
+		super(used, precio, idticket, loginUsuario, excLevel);
 		this.starDate = starDate;
 		this.endDate = endDate;
 	}

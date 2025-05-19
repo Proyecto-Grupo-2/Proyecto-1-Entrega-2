@@ -1,11 +1,13 @@
  package Tiquetes;
 import java.time.LocalDateTime;
 
+
+
 public class TiqueteDia extends Tiquete {
 	private LocalDateTime fechatiquete;
 
-	public TiqueteDia(Boolean used, Double precio, String idticket, String loginUsuario, LocalDateTime fechatiquete) {
-		super(used, precio, idticket,loginUsuario);
+	public TiqueteDia(Boolean used, Double precio, String idticket, String loginUsuario, LocalDateTime fechatiquete,String excLevel) {
+		super(used, precio, idticket,loginUsuario, excLevel);
 		this.fechatiquete = fechatiquete;
 	}
 

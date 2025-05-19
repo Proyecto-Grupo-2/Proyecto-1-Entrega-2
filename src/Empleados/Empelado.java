@@ -15,7 +15,7 @@ public class Empelado {
 
 	private boolean esAutorizado;
 	
-	private ArrayList<Boolean> listaHabilidades= new ArrayList<Boolean>();
+	private ArrayList<String> listaHabilidades= new ArrayList<String>();
 	
 	private String IdUnicoEmp;
 	
@@ -28,7 +28,7 @@ public class Empelado {
 	private ArrayList<Atraccion> listaAtraccionesPermitidas= new ArrayList<Atraccion>(); 
 	
 
-	public Empelado(boolean esAutorizado, ArrayList<Boolean> listaHabilidades, String idUnicoEmp,
+	public Empelado(boolean esAutorizado, ArrayList<String> listaHabilidades, String idUnicoEmp,
 			ArrayList<Turno> listaTurnos, ArrayList<Atraccion> listaAtracciones,
 			ArrayList<Espectaculo> listaEspectaculos, ArrayList<Atraccion> listaAtraccionesPermitidas) {
 		super();
@@ -49,11 +49,11 @@ public class Empelado {
 		this.esAutorizado = esAutorizado;
 	}
 
-	public ArrayList<Boolean> getListaHabilidades() {
+	public ArrayList<String> getListaHabilidades() {
 		return listaHabilidades;
 	}
 
-	public void setListaHabilidades(ArrayList<Boolean> listaHabilidades) {
+	public void setListaHabilidades(ArrayList<String> listaHabilidades) {
 		this.listaHabilidades = listaHabilidades;
 	}
 

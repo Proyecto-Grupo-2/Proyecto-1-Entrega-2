@@ -1,9 +1,13 @@
 package parqueDeAtracciones;
-
+import java.util.UUID;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
 
 import Tiquetes.FastPass;
 import Tiquetes.Tiquete;
+import Tiquetes.TiqueteDia;
+import Tiquetes.TiqueteTemporada;
 
 public class Usuario {
 	private String login; 
@@ -88,6 +92,15 @@ public class Usuario {
 			this.listaFastPass.add(fastPass);
 			}
 	}
+	public ArrayList<Atraccion> consultarCatalogoAtracciones() {
+		ArrayList<Atraccion> atracciones = getListaAtracciones();
+		return atracciones;
+	}
+	
+	public ArrayList<Tiquete> consultarCatalogoTiquetes(){
+		ArrayList<Tiquete> tiquetes = this.listaTiquetes;
+		return tiquetes;
+	}
 	
 	public Atraccion consultarInfoAtraccionEspec(String nomA)
 	{
@@ -117,6 +130,29 @@ public class Usuario {
 	}
 		return null;
 }
+	public void compraTiquetesOnline(String loginU, String tipoTiquete, String excLevel, double precio, 
+            LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		if(login.equals(loginU)) {
+			String idUnico = UUID.randomUUID().toString().substring(0, 8);
+			if(tipoTiquete.toUpperCase().equals("normal".toUpperCase())) {
+				Tiquete nuevoTiquete = new Tiquete(false, precio, loginU, idUnico, excLevel);
+		        this.listaTiquetes.add(nuevoTiquete);
+			}
+			else if(tipoTiquete.toUpperCase().equalsIgnoreCase("fastpass".toUpperCase())) {
+		        FastPass nuevoFastPass = new FastPass(LocalDateTime.now(), loginU, idUnico);
+		        this.listaFastPass.add(nuevoFastPass);
+		    }
+			else if(tipoTiquete.toUpperCase().equalsIgnoreCase("tiquetedia".toUpperCase())) {
+				TiqueteDia tiqueteDia = new TiqueteDia(false, precio, idUnico, loginU , LocalDateTime.now(),excLevel);
+				this.listaTiquetes.add(tiqueteDia);
+			}
+			else if(tipoTiquete.toUpperCase().equalsIgnoreCase("tiquetetemporada".toUpperCase())){
+				TiqueteTemporada tiqueteTemp = new TiqueteTemporada(false, precio, idUnico, loginU,excLevel, fechaInicio, fechaFin);
+	            this.listaTiquetes.add(tiqueteTemp);
+			}
+		}
+		
+	}
 }
 
 
